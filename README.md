@@ -123,7 +123,7 @@ are unique within an archive.
 
 
 
-## If this saved you time, and can spare the cash:
+## If this saved you time, and you can spare the cash:
 
 <a href='https://ko-fi.com/Y8Y41LC22H' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
