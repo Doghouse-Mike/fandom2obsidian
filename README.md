@@ -16,7 +16,12 @@ What you get
 
 
 ## Re-running
-State is kept in .fandom2obsidian.sqlite in the output folder. Re-running the same command: • re-fetches only pages whose revision changed; • picks up new pages; • handles renamed pages; • resumes an interrupted run (Ctrl-C is safe). --force re-converts everything. Use it after you change the converter. Pages deleted on the wiki are kept.
+State is kept in .fandom2obsidian.sqlite in the output folder. Re-running the same command: 
+• re-fetches only pages whose revision changed; 
+• picks up new pages; 
+• handles renamed pages; 
+• resumes an interrupted run (Ctrl-C is safe). 
+--force re-converts everything. Use it after you change the converter. Pages deleted on the wiki are kept.
 
 ## Options
 Option Default --category NAME — only that category's members (repeatable, not recursive) --images local local (download, falling back to hotlinks), remote (hotlink), none --limit N — stop after N pages, for testing --namespaces 0,14 0 = articles, 14 = category pages --workers / --delay 2 / 0.5 s the delay is a global cap, so ≈2 pages/s (4/s got rate-limited after ~1,100 pages) Time per wiki at the default rate: Wiki Articles Full run FFG wiki ~3.5k ~30 min Wookieepedia ~240k ~1.5 days (plus category pages) Listing the pages comes first and takes a few minutes. Please don't crank up --delay. Fandom will rate-limit you, and the script backs off on 429/503 and maxlag anyway.
