@@ -1,5 +1,7 @@
 # fandom2obsidian
 
+A script for scraping a fandom site into a useable [Obsidian](https://obsidian.md/) Vault.
+
 Archives a Fandom wiki (or any MediaWiki site) as a folder of Obsidian notes.
 It is a single file with no setup: `uv` fetches its dependencies on first run.
 
@@ -118,3 +120,11 @@ are unique within an archive.
 - Links to pages outside what you archived stay as unresolved wikilinks (with
   `--category`). They resolve if a later full run fetches those pages.
 - Interwiki links, such as FFG → Wookieepedia, stay as web links.
+
+
+
+## If this saved you time, and can spare the cash:
+
+<a href='https://ko-fi.com/Y8Y41LC22H' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+I'll blow it on some combination of bike parts, nerd things, cameras, and music gear. Or food. [Food is good. ](https://www.youtube.com/watch?v=8bpTejGazqk)
