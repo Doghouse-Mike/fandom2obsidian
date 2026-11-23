@@ -1,0 +1,87 @@
+# Starships and planetary vehicles. Homebrew is in its own view.
+properties:
+  hard_points:
+    displayName: HP
+  cargo:
+    displayName: Cargo (enc)
+  hull_trauma:
+    displayName: Hull trauma
+  system_strain:
+    displayName: System strain
+  defense_arcs:
+    displayName: Defense (F/P/S/A)
+  restricted:
+    displayName: (R)
+views:
+  - type: table
+    name: Starships
+    filters:
+      and:
+        - 'file.inFolder("Vehicles/Starships")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - model
+      - silhouette
+      - speed
+      - handling
+      - defense_arcs
+      - armor
+      - hull_trauma
+      - system_strain
+      - hard_points
+      - crew
+      - passengers
+      - cargo
+      - hyperdrive
+      - consumables
+      - price
+      - restricted
+      - rarity
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: silhouette
+        direction: ASC
+  - type: table
+    name: Planetary vehicles
+    filters:
+      and:
+        - 'file.inFolder("Vehicles/Planetary")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - model
+      - silhouette
+      - speed
+      - handling
+      - defense_arcs
+      - armor
+      - hull_trauma
+      - system_strain
+      - hard_points
+      - crew
+      - passengers
+      - cargo
+      - price
+      - restricted
+      - rarity
+    sort:
+      - property: silhouette
+        direction: ASC
+  - type: table
+    name: Homebrew
+    filters:
+      and:
+        - 'stat_block == "vehicle"'
+        - 'homebrew == true'
+    order:
+      - file.name
+      - silhouette
+      - speed
+      - handling
+      - armor
+      - hull_trauma
+      - system_strain
+      - price
+      - rarity

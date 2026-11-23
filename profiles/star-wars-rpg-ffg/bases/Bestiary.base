@@ -1,0 +1,93 @@
+# Playable species and adversaries/creatures, by characteristics.
+# A species' wound/strain threshold is a base that adds Brawn/Willpower.
+formulas:
+  start_wounds: 'if(wound_threshold, wound_threshold + brawn, "")'
+  start_strain: 'if(strain_threshold, strain_threshold + willpower, "")'
+properties:
+  starting_xp:
+    displayName: Start XP
+  special_abilities:
+    displayName: Special abilities
+  extra_abilities:
+    displayName: Other abilities
+  adversary_type:
+    displayName: Type
+  formula.start_wounds:
+    displayName: Wounds (with Br)
+  formula.start_strain:
+    displayName: Strain (with Will)
+  wound_threshold:
+    displayName: Wounds
+  strain_threshold:
+    displayName: Strain
+  melee_defense:
+    displayName: M.Def
+  ranged_defense:
+    displayName: R.Def
+views:
+  - type: table
+    name: Species
+    filters:
+      and:
+        - 'file.inFolder("Species")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - brawn
+      - agility
+      - intellect
+      - cunning
+      - willpower
+      - presence
+      - wound_threshold
+      - strain_threshold
+      - formula.start_wounds
+      - formula.start_strain
+      - starting_xp
+      - special_abilities
+      - extra_abilities
+  - type: table
+    name: Adversaries & creatures
+    filters:
+      and:
+        - 'file.inFolder("Adversaries & Creatures")'
+        - 'homebrew != true'
+    groupBy:
+      property: note.adversary_type
+      direction: ASC
+    order:
+      - file.name
+      - brawn
+      - agility
+      - intellect
+      - cunning
+      - willpower
+      - presence
+      - soak
+      - wound_threshold
+      - strain_threshold
+      - melee_defense
+      - ranged_defense
+      - skills
+      - talents
+      - abilities
+      - equipment
+    sort:
+      - property: wound_threshold
+        direction: DESC
+  - type: table
+    name: Homebrew
+    filters:
+      and:
+        - 'stat_block == "creature"'
+        - 'homebrew == true'
+    order:
+      - file.name
+      - brawn
+      - agility
+      - intellect
+      - cunning
+      - willpower
+      - presence
+      - wound_threshold
+      - strain_threshold

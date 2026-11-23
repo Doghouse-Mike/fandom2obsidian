@@ -1,0 +1,163 @@
+{
+  "_about": "fandom2obsidian profile for https://star-wars-rpg-ffg.fandom.com — folder rules (first match wins), flags and lifted fields",
+  "default_folder": "Rules & Reference",
+  "folders": [
+    {
+      "if": {
+        "title": "Star Wars RPG (FFG) Wiki"
+      },
+      "folder": ""
+    },
+    {
+      "if": {
+        "namespace": 14
+      },
+      "folder": "Categories"
+    },
+    {
+      "if": {
+        "stat_block": "weapon"
+      },
+      "folder": "Equipment/Weapons"
+    },
+    {
+      "if": {
+        "stat_block": "armor"
+      },
+      "folder": "Equipment/Armour"
+    },
+    {
+      "if": {
+        "stat_block": "attachment"
+      },
+      "folder": "Equipment/Attachments"
+    },
+    {
+      "if": {
+        "stat_block": "vehicle",
+        "category": "Starships"
+      },
+      "folder": "Vehicles/Starships"
+    },
+    {
+      "if": {
+        "stat_block": "vehicle"
+      },
+      "folder": "Vehicles/Planetary"
+    },
+    {
+      "if": {
+        "category": "Species"
+      },
+      "folder": "Species"
+    },
+    {
+      "if": {
+        "stat_block": "creature"
+      },
+      "folder": "Adversaries & Creatures"
+    },
+    {
+      "if": {
+        "category": "Signature Ability"
+      },
+      "folder": "Signature Abilities"
+    },
+    {
+      "if": {
+        "category": "Talents"
+      },
+      "folder": "Talents"
+    },
+    {
+      "if": {
+        "category": [
+          "Careers",
+          "Specialization"
+        ]
+      },
+      "folder": "Careers & Specializations"
+    },
+    {
+      "if": {
+        "category": "Force Power"
+      },
+      "folder": "Force Powers"
+    },
+    {
+      "if": {
+        "category": [
+          "Skills",
+          "General Skills",
+          "Combat Skills",
+          "Knowledge Skills"
+        ]
+      },
+      "folder": "Skills"
+    },
+    {
+      "if": {
+        "category": [
+          "Starships",
+          "Vehicles",
+          "Transportation"
+        ]
+      },
+      "folder": "Vehicles/Other"
+    },
+    {
+      "if": {
+        "stat_block": "gear"
+      },
+      "folder": "Equipment/Gear"
+    },
+    {
+      "if": {
+        "category": [
+          "Equipment",
+          "Gear"
+        ]
+      },
+      "folder": "Equipment/Gear"
+    }
+  ],
+  "flags": {
+    "homebrew": "Homebrew"
+  },
+  "fields": {
+    "Activation": "activation",
+    "Ranked": "ranked",
+    "Trees": "trees",
+    "Wound Threshold": "wound_threshold:int",
+    "Strain Threshold": "strain_threshold:int",
+    "Starting Experience": "starting_xp:int",
+    "Homeworld": "homeworld",
+    "Price/Rarity": "price:price_rarity",
+    "Manufacturer": "manufacturer",
+    "Hull Type/Class": "model:text",
+    "Vehicle Type/Model": "model:text",
+    "Hyperdrive": "hyperdrive:text",
+    "Crew": "crew:text",
+    "Ship's Complement": "crew:text",
+    "Passenger Capacity": "passengers:int",
+    "Encumbrance Capacity": "cargo:int",
+    "Customization Hard Points": "hard_points:int",
+    "Consumables": "consumables:text",
+    "Sensor Range": "sensor_range:text",
+    "Career Skills": "career_skills",
+    "Special Abilities": [
+      "special_abilities:text",
+      "extra_abilities:labels_after"
+    ],
+    "Skills": "skills:list",
+    "Skills (group only)": "skills:list",
+    "Skills (Group Only)": "skills:list",
+    "Talents": "talents:names",
+    "Abilities": "abilities:names",
+    "Equipment": "equipment:names"
+  },
+  "_fields_help": "Label: property[:type]. Types: int (first number), text (links flattened), price_rarity ('150,000 credits (R)/6' -> price, restricted, rarity). No type: links -> list, Yes/No -> boolean. A list of specs lifts several properties from one label; labels_after collects the names of the '- **Name:**' lines that follow. list: comma-separated items (links flattened); names: the same, minus any (explanation). patterns: property -> regex, first group Title Cased.",
+  "patterns": {
+    "adversary_type": "^#{1,6} .*?\\\\?\\[(MINION|RIVAL|NEMESIS|Minion|Rival|Nemesis)\\\\?\\]"
+  }
+}

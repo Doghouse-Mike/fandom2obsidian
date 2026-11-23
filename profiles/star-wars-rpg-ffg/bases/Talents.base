@@ -1,0 +1,47 @@
+# Every talent, with activation, whether it's ranked, and which trees have it.
+views:
+  - type: table
+    name: All talents
+    filters:
+      and:
+        - 'file.hasProperty("activation")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - activation
+      - ranked
+      - trees
+  - type: table
+    name: Passive
+    filters:
+      and:
+        - 'file.hasProperty("activation")'
+        - 'activation.startsWith("Passive")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - ranked
+      - trees
+  - type: table
+    name: Active
+    filters:
+      and:
+        - 'file.hasProperty("activation")'
+        - 'activation.startsWith("Active")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - activation
+      - ranked
+      - trees
+  - type: table
+    name: Homebrew
+    filters:
+      and:
+        - 'file.hasProperty("activation")'
+        - 'homebrew == true'
+    order:
+      - file.name
+      - activation
+      - ranked
+      - trees

@@ -1,0 +1,136 @@
+# Weapons, armour, attachments and gear, sortable by any stat.
+# Homebrew (community sourcebook) items are left out of every view but the last.
+formulas:
+  dmg: 'if(damage_adds_brawn, "Br+" + damage, damage)'
+properties:
+  formula.dmg:
+    displayName: Damage
+  crit:
+    displayName: Crit
+  hard_points:
+    displayName: HP
+  hard_points_required:
+    displayName: HP needed
+  encumbrance:
+    displayName: Enc
+  restricted:
+    displayName: (R)
+views:
+  - type: table
+    name: Ranged & gunnery
+    filters:
+      and:
+        - 'stat_block == "weapon"'
+        - 'skill.containsAny("Ranged", "Gunnery")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - skill
+      - formula.dmg
+      - crit
+      - range
+      - special
+      - encumbrance
+      - hard_points
+      - price
+      - restricted
+      - rarity
+    sort:
+      - property: damage
+        direction: DESC
+  - type: table
+    name: Melee, brawl & lightsabers
+    filters:
+      and:
+        - 'stat_block == "weapon"'
+        - 'skill.containsAny("Melee", "Brawl", "Lightsaber")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - skill
+      - formula.dmg
+      - crit
+      - special
+      - encumbrance
+      - hard_points
+      - price
+      - restricted
+      - rarity
+    sort:
+      - property: crit
+        direction: ASC
+  - type: table
+    name: Other weapons
+    filters:
+      and:
+        - 'stat_block == "weapon"'
+        - '!skill.containsAny("Ranged", "Gunnery", "Melee", "Brawl", "Lightsaber")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - skill
+      - formula.dmg
+      - crit
+      - range
+      - special
+      - price
+      - rarity
+  - type: table
+    name: Armour
+    filters:
+      and:
+        - 'stat_block == "armor"'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - defense
+      - soak
+      - hard_points
+      - encumbrance
+      - price
+      - restricted
+      - rarity
+    sort:
+      - property: soak
+        direction: DESC
+  - type: table
+    name: Attachments
+    filters:
+      and:
+        - 'stat_block == "attachment"'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - hard_points_required
+      - price
+      - restricted
+      - rarity
+      - categories
+  - type: table
+    name: Gear
+    filters:
+      and:
+        - 'file.inFolder("Equipment/Gear")'
+        - 'homebrew != true'
+    order:
+      - file.name
+      - encumbrance
+      - price
+      - restricted
+      - rarity
+      - categories
+  - type: table
+    name: Homebrew (all kinds)
+    filters:
+      and:
+        - 'stat_block.containsAny("weapon", "armor", "attachment", "gear")'
+        - 'homebrew == true'
+    order:
+      - file.name
+      - stat_block
+      - skill
+      - formula.dmg
+      - crit
+      - soak
+      - price
+      - rarity
